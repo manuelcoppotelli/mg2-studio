@@ -29,6 +29,7 @@ export default class SectionMap extends React.Component {
                       bootstrapURLKeys={{ key: process.env.GATSBY_APP_GOOGLE_MAPS_STATIC_API_KEY }}
                       defaultCenter={_.get(this.props, 'pageContext.site.siteMetadata.map.center', null)}
                       defaultZoom={_.get(this.props, 'pageContext.site.siteMetadata.map.zoom', null)}
+                      yesIWantToUseGoogleMapApiInternals
                       onGoogleApiLoaded={({ map, maps }) => {
                         let marker = new maps.Marker({
                             position: { lat: _.get(this.props, 'pageContext.site.siteMetadata.map.lat', null), lng: _.get(this.props, 'pageContext.site.siteMetadata.map.lng', null) },
