@@ -1,0 +1,60 @@
+{
+    "color_scheme": "light",
+    "accent_color": "green",
+    "header": {
+        "has_nav": true,
+        "nav_links": [
+            {
+                "label": "Home",
+                "url": "/",
+                "style": "link"
+            },
+            {
+                "label": "Servizi",
+                "url": "/servizi/",
+                "style": "link"
+            },
+            {
+                "label": "Progetti",
+                "url": "/progetti/",
+                "style": "link"
+            },
+            {
+                "label": "Blog",
+                "url": "/blog/",
+                "style": "link"
+            },
+            {
+                "label": "Chi siamo",
+                "url": "/chi-siamo/",
+                "style": "link"
+            },
+            {
+                "label": "Contatti",
+                "url": "/contatti/",
+                "style": "link"
+            }
+        ]
+    },
+    "footer": {
+        "content": "&copy; mg2Studio - Studio Tecnico e di Architettura. Tutti i diritti riservati. Realizzato da <a href=\"https://manuelcoppotelli.me\" target=\"_blank\" rel=\"noopener\">Manuel Coppotelli</a>.",
+        "has_social": true,
+        "social_links": [
+            {
+                "label": "Facebook",
+                "url": "https://facebook.com/Mg2-Studio-107270644891947",
+                "style": "icon",
+                "icon": "facebook",
+                "new_window": true
+            },
+            {
+                "label": "Instagram",
+                "url": "https://www.instagram.com/mg2studioarch",
+                "style": "icon",
+                "icon": "instagram",
+                "new_window": true
+            }
+        ]
+    },
+    "title": "mg2Studio - Studio Tecnico e di Architettura"
+}

@@ -1,23 +1,32 @@
+const siteMetadata = require('./site-metadata.json')
+
 module.exports = {
-  siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "mg2studio",
-  },
+  siteMetadata: siteMetadata,
   plugins: [
-    "gatsby-plugin-netlify-cms",
-    "gatsby-plugin-sass",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sitemap",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-sharp",
+    "gatsby-remark-page-creator",
+    "gatsby-source-data",
+    "gatsby-transformer-remark",
+    "gatsby-transformer-sharp",
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/favicon.png",
+        background_color: "#ffffff",
+        theme_color: "#ffffff",
       },
     },
-    "gatsby-transformer-remark",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -34,5 +43,17 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        enableIdentityWidget: true,
+      },
+    },
   ],
+  flags: {
+    DEV_SSR: false,
+    FAST_DEV: false,
+    PRESERVE_FILE_DOWNLOAD_CACHE: false,
+    PARALLEL_SOURCING: false,
+  }
 };
