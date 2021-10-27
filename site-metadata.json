@@ -1,6 +1,18 @@
 {
     "color_scheme": "light",
     "accent_color": "green",
+    "map": {
+        "lat": 41.51235794201787,
+        "lng": 12.854569211395908,
+        "zoom": 14,
+        "center": {
+            "lat": 41.51235794201787,
+            "lng": 12.854569211395908
+        },
+        "marker": {
+            "label": "mg2Studio"
+        }
+    },
     "header": {
         "has_nav": true,
         "nav_links": [

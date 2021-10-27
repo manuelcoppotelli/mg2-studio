@@ -3,7 +3,7 @@ title: Contatti
 hide_title: false
 sections:
   - section_id: location_map
-    type: section_hero
+    type: section_map
     content: >-
       Ciao! Grazie per l'interesse nel nostro lavoro. Per favore compila il modulo sotto per entrare in contatto con noi.
   - section_id: contact-form
