@@ -24,7 +24,7 @@ export default class SectionMap extends React.Component {
                   {_.get(section, 'content', null) && (
                   markdownify(_.get(section, 'content', null))
                   )}
-                  <div style={{ height: '100vh', width: '100%' }}>
+                  <div style={{ height: '50vh', width: '100%' }}>
                     <GoogleMapReact
                       bootstrapURLKeys={{ key: process.env.GATSBY_APP_GOOGLE_MAPS_STATIC_API_KEY }}
                       defaultCenter={_.get(this.props, 'pageContext.site.siteMetadata.map.center', null)}
