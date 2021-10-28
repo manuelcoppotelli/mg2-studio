@@ -369,3 +369,15 @@ collections:
     create: false
     delete: false
     <<: *page_fields
+  - file: src/pages/cookie-policy.md
+    label: Cookie Policy
+    name: cookie-policy
+    create: false
+    delete: false
+    <<: *page_fields
+  - file: src/pages/privacy-policy.md
+    label: Privacy Policy
+    name: privacy-policy
+    create: false
+    delete: false
+    <<: *page_fields

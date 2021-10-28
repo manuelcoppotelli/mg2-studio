@@ -50,6 +50,18 @@
     },
     "footer": {
         "content": "&copy; mg2Studio - Studio Tecnico e di Architettura. Tutti i diritti riservati. Realizzato da <a href=\"https://manuelcoppotelli.me\" target=\"_blank\" rel=\"noopener\">Manuel Coppotelli</a>.",
+        "links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy/",
+                "style": "link"
+            },
+            {
+                "label": "Cookie Policy",
+                "url": "/cookie-policy/",
+                "style": "link"
+            }
+        ],
         "has_social": true,
         "social_links": [
             {
