@@ -32,9 +32,9 @@ export default class SectionMap extends React.Component {
                       yesIWantToUseGoogleMapApiInternals
                       onGoogleApiLoaded={({ map, maps }) => {
                         let marker = new maps.Marker({
-                            position: { lat: _.get(this.props, 'pageContext.site.siteMetadata.map.lat', null), lng: _.get(this.props, 'pageContext.site.siteMetadata.map.lng', null) },
+                            position: { lat: _.get(this.props, 'pageContext.site.siteMetadata.map.marker.lat', null), lng: _.get(this.props, 'pageContext.site.siteMetadata.map.marker.lng', null) },
                             map,
-                            title: 'Hello World!'
+                            title: _.get(this.props, 'pageContext.site.siteMetadata.map.marker.label', null)
                         });
                         return marker;
                       }}
