@@ -12,6 +12,10 @@ sections:
         url: /contatti
         style: button
   - section_id: services
+    type: section_services
+    title: Cosa facciamo
+    subtitle: Un mix esplosivo di servizi per i nostri clienti
+  - section_id: services_static
     type: section_grid
     title: Cosa facciamo
     subtitle: Un mix esplosivo di servizi per i nostri clienti

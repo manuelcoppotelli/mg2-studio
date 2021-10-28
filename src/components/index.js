@@ -13,6 +13,7 @@ import SectionMap from './SectionMap';
 import SectionHero from './SectionHero';
 import SectionPortfolio from './SectionPortfolio';
 import SectionPosts from './SectionPosts';
+import SectionServices from './SectionServices';
 import SectionTestimonials from './SectionTestimonials';
 import Layout from './Layout';
 
@@ -32,6 +33,7 @@ export {
     SectionHero,
     SectionPortfolio,
     SectionPosts,
+    SectionServices,
     SectionTestimonials,
     Layout
 };
@@ -52,6 +54,7 @@ const elems = {
     SectionMap,
     SectionPortfolio,
     SectionPosts,
+    SectionServices,
     SectionTestimonials,
     Layout
 };
