@@ -38,7 +38,7 @@ export default class SectionPosts extends React.Component {
                           </h3>
                           <div className="post-meta">
                             <time className="published"
-                              dateTime={moment(_.get(post, 'frontmatter.date', null)).strftime('%Y-%m-%d %H:%M')}>{moment(_.get(post, 'frontmatter.date', null)).strftime('%B %d, %Y')}</time>
+                              dateTime={moment(_.get(post, 'frontmatter.date', null)).strftime('%Y-%m-%d %H:%M')}>{moment(_.get(post, 'frontmatter.date', null)).strftime('%d/%m/%Y')}</time>
                           </div>
                         </header>
                         {_.get(post, 'frontmatter.excerpt', null) && (
