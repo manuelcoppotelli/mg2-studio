@@ -86,7 +86,7 @@ templates:
       options:
       - label: mosaico
         value: mosaic
-  servizio: &servizo_fields
+  servizio: &servizio_fields
     fields:
     - label: Template Key
       name: template
@@ -230,7 +230,10 @@ collections:
   folder: src/pages/servizi
   create: true
   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-  <<: *progetto_fields
+  view_groups:
+  - label: Categoria
+    field: category
+  <<: *servizio_fields
 - name: project
   label: Progetti
   label_singular: Progetto

@@ -1,14 +1,27 @@
 import React from 'react';
 import _ from 'lodash';
 
-import {htmlToReact, classNames, withPrefix, markdownify, getPages} from '../utils';
-import CtaButtons from './CtaButtons';
+import {htmlToReact, classNames, withPrefix, markdownify, getPages, Link} from '../utils';
 
 export default class SectionServices extends React.Component {
     render() {
         let section = _.get(this.props, 'section', null);
+
         let display_services = _.orderBy(getPages(this.props.pageContext.pages, '/servizi'), 'frontmatter.date', 'desc');
-        console.log(display_services)
+        let services_by_category = _.map(
+            _.groupBy(display_services, elem => elem.frontmatter.category),
+            (vals, key) => {
+                return {category: key, services: vals}
+            }
+        )
+
+        let display_categories = getPages(this.props.pageContext.pages, '/categorie')
+        let categories_data = _.map(display_categories, (vals, key) => {
+            return {category:vals.name, data: vals}
+        })
+
+        let services_data = _.merge(_.keyBy(categories_data, 'category'), _.keyBy(services_by_category, 'category'))
+
         return (
             <section id={_.get(section, 'section_id', null)} className="block block-grid outer">
               <div className="inner">
@@ -22,30 +35,36 @@ export default class SectionServices extends React.Component {
                   )}
                 </div>
                 )}
-                {_.get(section, 'grid_items', null) && (
+                {services_data && (
                 <div className="block-content">
                   <div className={classNames('grid', {'grid-col-2': _.get(section, 'col_number', null) === 'two', 'grid-col-3': _.get(section, 'col_number', null) === 'three'})}>
-                    {_.map(_.get(section, 'grid_items', null), (item, item_idx) => (
+                    {_.map(services_data, (item, item_idx) => (
                     <div key={item_idx} className="grid-item">
                       {_.get(section, 'is_numbered', null) && (
                       <span className="grid-item-counter" aria-hidden="true">{item_idx + 1}.</span>
                       )}
-                      {_.get(item, 'image', null) && (
+                      {_.get(item, 'data.frontmatter.image', null) && (
                       <div className="grid-item-image">
-                        <img src={withPrefix(_.get(item, 'image', null))} alt={_.get(item, 'image_alt', null)} />
+                        <img src={withPrefix(_.get(item, 'data.frontmatter.image', null))} alt={_.get(item, 'image_alt', null)} />
                       </div>
                       )}
-                      {_.get(item, 'title', null) && (
-                      <h3 className="grid-item-title">{_.get(item, 'title', null)}</h3>
+                      {_.get(item, 'data.frontmatter.title', null) && (
+                      <h3 className="grid-item-title">{_.get(item, 'data.frontmatter.title', null)}</h3>
                       )}
-                      {_.get(item, 'content', null) && (
+                      {_.get(item, 'data.html', null) && (
                       <div className="grid-item-content">
-                        {markdownify(_.get(item, 'content', null))}
-                      </div>
-                      )}
-                      {_.get(item, 'actions', null) && (
-                      <div className="grid-item-buttons">
-                        <CtaButtons {...this.props} actions={_.get(item, 'actions', null)} />
+                        {markdownify(_.get(item, 'data.html', null))}
+                        {_.get(item, 'services', null) && (
+                          <ul>
+                             {_.map(_.get(item, 'services', null), (service, service_idx) => (
+                                  <li key={service_idx}>
+                                      <Link to={withPrefix(_.get(service, 'url', null))}>
+                                          {service.frontmatter.title}
+                                      </Link>
+                                  </li>
+                              ))}
+                          </ul>
+                        )}
                       </div>
                       )}
                     </div>
