@@ -1,6 +1,6 @@
 ---
 title: Pratiche catastali
-image: /images/10_thumb.jpg
+image: /images/service.png
 image_alt: pratiche-catastali-alt
 template: page
 ---

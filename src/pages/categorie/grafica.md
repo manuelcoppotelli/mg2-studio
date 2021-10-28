@@ -1,6 +1,6 @@
 ---
 title: Grafica
-image: /images/10_thumb.jpg
+image: /images/service.png
 image_alt: grafica-alt
 template: page
 ---
