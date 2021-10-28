@@ -98,8 +98,7 @@ templates:
       collection: category
       search_fields:
       - title
-      value_field:
-      - slug
+      value_field: "{{slug}}"
       display_fields:
       - title
     - label: Titolo
@@ -122,6 +121,20 @@ templates:
       widget: image
     - label: Immagine (Alt.)
       name: image_alt
+      widget: string
+    - label: Body
+      name: body
+      widget: markdown
+  testimonial: &testimonial_fields
+    fields:
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Avatar
+      name: avatar
+      widget: image
+    - label: Avatar (Alt.)
+      name: avatar_alt
       widget: string
     - label: Body
       name: body
@@ -273,6 +286,13 @@ collections:
   - label: Body
     name: body
     widget: markdown
+- name: testimonials
+  label: Testimonials
+  label_singular: Testimonial
+  folder: src/pages/testimonials
+  create: true
+  slug: "{{slug}}"
+  <<: *testimonial_fields
 - name: pages
   label: Pagine
   label_singular: Pagina
