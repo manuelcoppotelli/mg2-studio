@@ -38,7 +38,7 @@ templates:
     - label: Body
       name: body
       widget: markdown
-  progetto: &progetto_servizo_fields
+  progetto: &progetto_fields
     fields:
     - label: Template Key
       name: template
@@ -86,6 +86,46 @@ templates:
       options:
       - label: mosaico
         value: mosaic
+  servizio: &servizo_fields
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: project
+    - label: Categoria
+      name: category
+      widget: relation
+      collection: category
+      search_fields:
+      - title
+      value_field:
+      - slug
+      display_fields:
+      - title
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Sottotitolo
+      name: subtitle
+      widget: string
+    - label: Data
+      name: date
+      widget: datetime
+    - label: Immagine Anteprima
+      name: thumb_image
+      widget: image
+    - label: Immagine Anteprima (Alt.)
+      name: thumb_image_alt
+      widget: string
+    - label: Immagine
+      name: image
+      widget: image
+    - label: Immagine (Alt.)
+      name: image_alt
+      widget: string
+    - label: Body
+      name: body
+      widget: markdown
   advanced: &advanced_fields
     fields:
     - label: Template Key
@@ -163,20 +203,41 @@ templates:
           hint: stile=icona
 
 collections:
+- name: category
+  label: Categorie
+  label_singular: Categoria
+  folder: src/pages/categorie
+  create: true
+  slug: "{{slug}}"
+  fields:
+  - label: Titolo
+    name: title
+    widget: string
+  - label: Immagine
+    name: image
+    widget: image
+    required: false
+  - label: Immagine (Alt.)
+    name: image_alt
+    widget: string
+    required: false
+  - label: Descrizione
+    name: body
+    widget: markdown
 - name: service
   label: Servizi
   label_singular: Servizo
   folder: src/pages/servizi
   create: true
   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-  <<: *progetto_servizo_fields
+  <<: *progetto_fields
 - name: project
   label: Progetti
   label_singular: Progetto
   folder: src/pages/progetti
   create: true
   slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-  <<: *progetto_servizo_fields
+  <<: *progetto_fields
 - name: post
   label: Articoli
   label_singular: Articolo
