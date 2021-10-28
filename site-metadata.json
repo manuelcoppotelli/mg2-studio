@@ -8,9 +8,11 @@
             "lng": 12.854569211395908
         },
         "marker": {
-            "lat": 41.51235794201787,
-            "lng": 12.854569211395908,
-            "label": "mg2Studio"
+            "position": {
+                "lat": 41.5128,
+                "lng": 12.854569211395908
+            },
+            "label": "<b>mg2Studio</b><br>via Alfred Nobel 2A<br>04100 Borgo Podgora (LT)"
         }
     },
     "header": {

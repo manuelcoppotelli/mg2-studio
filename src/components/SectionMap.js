@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import GoogleMapReact from 'google-map-react'
+import { GoogleMap, LoadScript, InfoWindow } from '@react-google-maps/api';
 
 import {htmlToReact, markdownify} from '../utils';
 
@@ -24,23 +24,23 @@ export default class SectionMap extends React.Component {
                   {_.get(section, 'content', null) && (
                   markdownify(_.get(section, 'content', null))
                   )}
-                  <div style={{ height: '50vh', width: '100%' }}>
-                    <GoogleMapReact
-                      bootstrapURLKeys={{ key: process.env.GATSBY_APP_GOOGLE_MAPS_STATIC_API_KEY }}
-                      defaultCenter={_.get(this.props, 'pageContext.site.siteMetadata.map.center', null)}
-                      defaultZoom={_.get(this.props, 'pageContext.site.siteMetadata.map.zoom', null)}
-                      yesIWantToUseGoogleMapApiInternals
-                      onGoogleApiLoaded={({ map, maps }) => {
-                        let marker = new maps.Marker({
-                            position: { lat: _.get(this.props, 'pageContext.site.siteMetadata.map.marker.lat', null), lng: _.get(this.props, 'pageContext.site.siteMetadata.map.marker.lng', null) },
-                            map,
-                            title: _.get(this.props, 'pageContext.site.siteMetadata.map.marker.label', null)
-                        });
-                        return marker;
-                      }}
-                    >
-                    </GoogleMapReact>
-                  </div>
+                  <LoadScript
+                      googleMapsApiKey={process.env.GATSBY_APP_GOOGLE_MAPS_STATIC_API_KEY}
+                  >
+                      <GoogleMap
+                        mapContainerStyle={{ width: '100%', height: '50vh' }}
+                        center={_.get(this.props, 'pageContext.site.siteMetadata.map.center', null)}
+                        zoom={_.get(this.props, 'pageContext.site.siteMetadata.map.zoom', null)}
+                      >
+                          <InfoWindow
+                            position={_.get(this.props, 'pageContext.site.siteMetadata.map.marker.position', null)}
+                          >
+                            <div style={{ padding: 15, fontSize: 16}}>
+                              {htmlToReact(_.get(this.props, 'pageContext.site.siteMetadata.map.marker.label', null))}
+                            </div>
+                          </InfoWindow>
+                      </GoogleMap>
+                  </LoadScript>
                 </div>
               </div>
             </section>
