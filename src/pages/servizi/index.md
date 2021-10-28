@@ -1,6 +1,6 @@
 ---
 title: Servizi
-subtitle: This is an optional subtitle for the Servizi page.
+subtitle: Un mix esplosivo di servizi per i nostri clienti
 layout_style: mosaic
 template: services
 ---

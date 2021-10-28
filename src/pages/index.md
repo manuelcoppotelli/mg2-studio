@@ -33,7 +33,7 @@ sections:
   - section_id: latest-posts
     type: section_posts
     title: Ultimi post dal Blog
-    subtitle: An optional subtitle of the section
+    subtitle: Le novità dal mondo dell'architettura e edilizia
     posts_number: 3
     col_number: three
     actions:

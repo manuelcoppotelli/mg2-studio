@@ -1,6 +1,6 @@
 ---
 title: Progetti
-subtitle: This is an optional subtitle for the Progetti page.
+subtitle: I lavori di cui andiamo più fieri
 layout_style: mosaic
 template: portfolio
 ---
