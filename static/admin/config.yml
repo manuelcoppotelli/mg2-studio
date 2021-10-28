@@ -127,6 +127,10 @@ templates:
       widget: markdown
   testimonial: &testimonial_fields
     fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: page
     - label: Titolo
       name: title
       widget: string
@@ -223,6 +227,10 @@ collections:
   create: true
   slug: "{{slug}}"
   fields:
+  - label: Template Key
+    name: template
+    widget: hidden
+    default: page
   - label: Titolo
     name: title
     widget: string
