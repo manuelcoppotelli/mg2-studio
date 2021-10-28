@@ -1,11 +1,12 @@
 import React from 'react';
 import _ from 'lodash';
 
-import {htmlToReact, classNames, withPrefix} from '../utils';
+import {htmlToReact, classNames, withPrefix, getPages} from '../utils';
 
 export default class SectionTestimonials extends React.Component {
     render() {
         let section = _.get(this.props, 'section', null);
+        let display_testimonials = getPages(this.props.pageContext.pages, '/testimonials');
         return (
             <section id={_.get(section, 'section_id', null)} className="block block-testimonials outer">
               <div className="inner">
@@ -19,18 +20,18 @@ export default class SectionTestimonials extends React.Component {
                   )}
                 </div>
                 )}
-                {_.get(section, 'testimonials', null) && (
+                {display_testimonials && (
                 <div className="block-content">
                   <div className={classNames('grid', {'grid-col-2': _.get(section, 'col_number', null) === 'two', 'grid-col-3': _.get(section, 'col_number', null) === 'three'})}>
-                    {_.map(_.get(section, 'testimonials', null), (testimonial, testimonial_idx) => (
+                    {_.map(display_testimonials, (testimonial, testimonial_idx) => (
                     <div key={testimonial_idx} className="grid-item">
                       <blockquote className="testimonial">
-                        <p className="testimonial-content">{htmlToReact(_.get(testimonial, 'content', null))}</p>
+                        <p className="testimonial-content">{htmlToReact(_.get(testimonial, 'html', null))}</p>
                         <footer className="testimonial-footer">
-                          {_.get(testimonial, 'avatar', null) && (
-                          <img className="testimonial-avatar" src={withPrefix(_.get(testimonial, 'avatar', null))} alt={_.get(testimonial, 'avatar_alt', null)}/>
+                          {_.get(testimonial, 'frontmatter.avatar', null) && (
+                          <img className="testimonial-avatar" src={withPrefix(_.get(testimonial, 'frontmatter.avatar', null))} alt={_.get(testimonial, 'frontmatter.avatar_alt', null)}/>
                           )}
-                          <cite className="testimonial-author">{_.get(testimonial, 'author', null)}</cite>
+                          <cite className="testimonial-author">{_.get(testimonial, 'frontmatter.title', null)}</cite>
                         </footer>
                       </blockquote>
                     </div>
