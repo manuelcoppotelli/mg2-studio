@@ -15,50 +15,8 @@ sections:
     type: section_services
     title: Cosa facciamo
     subtitle: Un mix esplosivo di servizi per i nostri clienti
-  - section_id: services_static
-    type: section_grid
-    title: Cosa facciamo
-    subtitle: Un mix esplosivo di servizi per i nostri clienti
     col_number: two
-    is_numbered: true
-    grid_items:
-      - title: Architettura
-        content: |
-          Vivere in uno spazio progettato su misura per te ti fa sentire a casa e al sicuro. Ti da un senso di pace e di soddisfazione impagabili.
-          -	Ristrutturazione di interni
-          -	Design di interni
-          -	Home decor/Retail
-          -	Ristrutturazione di esterni
-          -	Restyling di giardini e parchi
-      - title: Pratiche edilizie
-        content: |
-          Le pratiche edilizie sono fondamentali per qualsiasi tipo di intervento, altrimenti si commette un reato di abuso edilizio. Sì, anche se vuoi spostare una sola porta. È meglio rivolgersi ad un tecnico oggi piuttosto che pagare multe salatissime domani!
-          -	CILA
-          -	SCIA
-          -	Permesso di Costruire
-          -	Pratiche edilizie in sanatoria
-          -	Condono edilizio
-          -	Rigenerazione Urbana
-          -	Bonus Ristrutturazioni
-          -	Consulenza su Superbonus 110%
-      - title: Pratiche catastali
-        content: |
-          Tutti i tuoi immobili di proprietà devono essere accatastati regolarmente, soprattutto per una successione o un atto di vendita. Noi ti aiutiamo a farlo.
-          -	Variazioni Catastali
-          -	Visure catastali
-          -	Estratti di mappa e planimetrie catastali
-          -	Successioni
-          -	Divisioni
-      - title: Fascicolo del fabbricato
-        content: |
-          Vuoi vendere la tua casa o comprarne una ma non sai da dove iniziare? Richiedici una consulenza, ti spiegheremo passo passo cosa c’è da fare e ti aiuteremo ad ottenere tutti i documenti necessari. Anche noi abbiamo vissuto la stessa fatica e sappiamo bene cosa significa, ma mettiamo al tuo servizio le nostre capacità.
-          -	APE (Attestato di prestazione energetica)
-      - title: Grafica
-        content: |
-          Oggi il brand identity è tutto: meglio contraddistinguersi per essere riconosciuti ed avere una buona pubblicità.
-          -	Design di loghi personalizzati
-          -	Progettazione e realizzazione di insegne
-          -	Realizzazione di locandine
+    is_numbered: false
   - section_id: latest-projects
     type: section_portfolio
     layout_style: mosaic
