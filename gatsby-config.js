@@ -53,6 +53,18 @@ module.exports = {
         enableIdentityWidget: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {}, // option to add more headers.
+        allPageHeaders: [], // option to add headers for all pages.
+        mergeSecurityHeaders: true, // turn off the default security headers
+        mergeLinkHeaders: true, // turn off the default gatsby js headers
+        mergeCachingHeaders: true, // turn off the default caching headers
+        transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path
+        generateMatchPathRewrites: true, // turn off automatic creation of redirect rules for client only paths
+      },
+    },
   ],
   flags: {
     DEV_SSR: false,
