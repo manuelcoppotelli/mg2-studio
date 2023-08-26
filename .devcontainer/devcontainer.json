@@ -1,0 +1,27 @@
+{
+	"name": "Gatsby",
+
+	// "image": "mcr.microsoft.com/devcontainers/typescript-node:1-18-bookworm",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+
+	"containerEnv": {
+		"GATSBY_TELEMETRY_DISABLED": "1",
+	},
+
+	"features": {},
+
+	"forwardPorts": [],
+
+	"postCreateCommand": "gatsby develop",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"stuart.unique-window-colors",
+				"oderwat.indent-rainbow",
+			]
+		}
+	}
+}
