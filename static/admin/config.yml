@@ -1,0 +1,384 @@
+locale: it
+logo_url: /admin-logo.svg
+media_folder: static/images
+public_folder: /images
+publish_mode: editorial_workflow
+show_preview_links: true
+
+backend:
+  #name: test-repo
+  name: git-gateway
+  branch: main
+  site_domain: cms.netlify.com
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: '[skip ci] Upload "{{path}}"'
+    deleteMedia: '[skip ci] Delete "{{path}}"'
+
+.templates:
+  page: &page_fields
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: page
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Sottotitolo
+      name: subtitle
+      widget: string
+    - label: Immagine
+      name: image
+      widget: image
+    - label: Immagine (Alt.)
+      name: image_alt
+      widget: string
+    - label: Body
+      name: body
+      widget: markdown
+  progetto: &progetto_fields
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: project
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Sottotitolo
+      name: subtitle
+      widget: string
+    - label: Data
+      name: date
+      widget: datetime
+    - label: Immagine Anteprima
+      name: thumb_image
+      widget: image
+    - label: Immagine Anteprima (Alt.)
+      name: thumb_image_alt
+      widget: string
+    - label: Immagine
+      name: image
+      widget: image
+    - label: Immagine (Alt.)
+      name: image_alt
+      widget: string
+    - label: Body
+      name: body
+      widget: markdown
+  progetti: &progetti_servizi_fields
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: services
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Sottotitolo
+      name: subtitle
+      widget: string
+    - label: Layout
+      name: layout_style
+      widget: select
+      options:
+      - label: mosaico
+        value: mosaic
+  servizio: &servizio_fields
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: project
+    - label: Categoria
+      name: category
+      widget: relation
+      collection: category
+      search_fields:
+      - title
+      value_field: "{{slug}}"
+      display_fields:
+      - title
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Sottotitolo
+      name: subtitle
+      widget: string
+    - label: Data
+      name: date
+      widget: datetime
+    - label: Immagine Anteprima
+      name: thumb_image
+      widget: image
+    - label: Immagine Anteprima (Alt.)
+      name: thumb_image_alt
+      widget: string
+    - label: Immagine
+      name: image
+      widget: image
+    - label: Immagine (Alt.)
+      name: image_alt
+      widget: string
+    - label: Body
+      name: body
+      widget: markdown
+  testimonial: &testimonial_fields
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: page
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Avatar
+      name: avatar
+      widget: image
+    - label: Avatar (Alt.)
+      name: avatar_alt
+      widget: string
+    - label: Body
+      name: body
+      widget: markdown
+  advanced: &advanced_fields
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: advanced
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Nascondi Titolo
+      name: hide_title
+      widget: boolean
+      default: false
+    - label: Sezioni
+      name: sections
+      widget: list
+      fields:
+      - label: ID
+        name: section_id
+        widget: string
+      - label: Tipo
+        name: type
+        widget: select
+        options:
+        - label: Recensioni
+          value: section_testimonials
+        - label: Contenuto
+          value: section_content
+        - label: Form Dinamico
+          value: section_dynamic_form
+        - label: Form
+          value: section_form
+        - label: Griglia
+          value: section_grid
+        - label: Hero
+          value: section_hero
+        - label: Mappa
+          value: section_map
+        - label: Portfolio
+          value: section_portfolio
+        - label: Post
+          value: section_posts
+      - label: Titolo
+        name: title
+        widget: string
+        hint: Hero
+      - label: Contenuto
+        name: content
+        widget: markdown
+        hint: Hero
+      - label: Azioni
+        name: actions
+        widget: list
+        hint: Hero
+        fields:
+        - label: Testo
+          name: label
+          widget: string
+        - label: URL
+          name: url
+          widget: string
+        - label: Stile
+          name: style
+          widget: select
+          options:
+          - label: Bottone
+            value: button
+          - label: Icona
+            value: icon
+          - label: Link
+            value: link
+        - label: Icona
+          name: icon
+          widget: string
+          hint: stile=icona
+
+collections:
+- name: category
+  label: Categorie
+  label_singular: Categoria
+  folder: src/pages/categorie
+  create: true
+  slug: "{{slug}}"
+  fields:
+  - label: Template Key
+    name: template
+    widget: hidden
+    default: page
+  - label: Titolo
+    name: title
+    widget: string
+  - label: Immagine
+    name: image
+    widget: image
+    required: false
+  - label: Immagine (Alt.)
+    name: image_alt
+    widget: string
+    required: false
+  - label: Descrizione
+    name: body
+    widget: markdown
+- name: service
+  label: Servizi
+  label_singular: Servizo
+  folder: src/pages/servizi
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  view_groups:
+  - label: Categoria
+    field: category
+  <<: *servizio_fields
+- name: project
+  label: Progetti
+  label_singular: Progetto
+  folder: src/pages/progetti
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  <<: *progetto_fields
+- name: post
+  label: Articoli
+  label_singular: Articolo
+  folder: src/pages/blog
+  create: true
+  slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+  fields:
+  - label: Template Key
+    name: template
+    widget: hidden
+    default: post
+  - label: Titolo
+    name: title
+    widget: string
+  - label: Sottotitolo
+    name: subtitle
+    widget: text
+  - label: Estratto
+    name: excerpt
+    widget: markdown
+  - label: Data di Pubblicazione
+    name: date
+    widget: datetime
+  - label: Immagine
+    name: thumb_image
+    widget: image
+  - label: Testo alternativo immagine
+    name: thumb_image_alt
+    widget: string
+  - label: Body
+    name: body
+    widget: markdown
+- name: testimonials
+  label: Testimonials
+  label_singular: Testimonial
+  folder: src/pages/testimonials
+  create: true
+  slug: "{{slug}}"
+  <<: *testimonial_fields
+- name: pages
+  label: Pagine
+  label_singular: Pagina
+  files:
+  - file: src/pages/index.md
+    label: Home
+    name: home
+    create: false
+    delete: false
+    <<: *advanced_fields
+  - file: src/pages/servizi/index.md
+    label: Servizi
+    name: services
+    create: false
+    delete: false
+    <<: *progetti_servizi_fields
+  - file: src/pages/progetti/index.md
+    label: Progetti
+    name: projects
+    create: false
+    delete: false
+    <<: *progetti_servizi_fields
+  - file: src/pages/blog/index.md
+    label: Blog
+    name: blog
+    create: false
+    delete: false
+    fields:
+    - label: Template Key
+      name: template
+      widget: hidden
+      default: blog
+    - label: Titolo
+      name: title
+      widget: string
+    - label: Sottotitolo
+      name: subtitle
+      widget: string
+    - label: Nascondi Titolo
+      name: hide_title
+      widget: boolean
+      default: false
+    - label: Colonne
+      name: col_number
+      widget: select
+      options:
+      - label: due
+        value: two
+      - label: tre
+        value: three
+  - file: src/pages/chi-siamo.md
+    label: Chi Siamo
+    name: about
+    create: false
+    delete: false
+    <<: *page_fields
+  - file: src/pages/contatti.md
+    label: Contatti
+    name: contacts
+    create: false
+    delete: false
+    <<: *advanced_fields
+  - file: src/pages/404.md
+    label: Non Trovato
+    name: not-found
+    create: false
+    delete: false
+    <<: *page_fields
+  - file: src/pages/cookie-policy.md
+    label: Cookie Policy
+    name: cookie-policy
+    create: false
+    delete: false
+    <<: *page_fields
+  - file: src/pages/privacy-policy.md
+    label: Privacy Policy
+    name: privacy-policy
+    create: false
+    delete: false
+    <<: *page_fields

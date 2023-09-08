@@ -1,0 +1,86 @@
+{
+    "color_scheme": "light",
+    "accent_color": "green",
+    "map": {
+        "zoom": 16,
+        "center": {
+            "lat": 41.51235794201787,
+            "lng": 12.854569211395908
+        },
+        "marker": {
+            "position": {
+                "lat": 41.5128,
+                "lng": 12.854569211395908
+            },
+            "label": "<img src=\"/icons/icon-72x72.png\"/><br><b>mg2Studio</b><br>via Alfred Nobel 2A<br>04100 Borgo Podgora (LT)"
+        }
+    },
+    "header": {
+        "has_nav": true,
+        "nav_links": [
+            {
+                "label": "Home",
+                "url": "/",
+                "style": "link"
+            },
+            {
+                "label": "Servizi",
+                "url": "/servizi/",
+                "style": "link"
+            },
+            {
+                "label": "Progetti",
+                "url": "/progetti/",
+                "style": "link"
+            },
+            {
+                "label": "Blog",
+                "url": "/blog/",
+                "style": "link"
+            },
+            {
+                "label": "Chi siamo",
+                "url": "/chi-siamo/",
+                "style": "link"
+            },
+            {
+                "label": "Contatti",
+                "url": "/contatti/",
+                "style": "link"
+            }
+        ]
+    },
+    "footer": {
+        "content": "&copy; mg2Studio - Studio Tecnico e di Architettura. Tutti i diritti riservati. Realizzato da <a href=\"https://manuelcoppotelli.me\" target=\"_blank\" rel=\"noopener\">Manuel Coppotelli</a>.",
+        "links": [
+            {
+                "label": "Privacy Policy",
+                "url": "/privacy-policy/",
+                "style": "link"
+            },
+            {
+                "label": "Cookie Policy",
+                "url": "/cookie-policy/",
+                "style": "link"
+            }
+        ],
+        "has_social": true,
+        "social_links": [
+            {
+                "label": "Facebook",
+                "url": "https://facebook.com/Mg2-Studio-107270644891947",
+                "style": "icon",
+                "icon": "facebook",
+                "new_window": true
+            },
+            {
+                "label": "Instagram",
+                "url": "https://www.instagram.com/mg2studioarch",
+                "style": "icon",
+                "icon": "instagram",
+                "new_window": true
+            }
+        ]
+    },
+    "title": "mg2Studio - Studio Tecnico e di Architettura"
+}
