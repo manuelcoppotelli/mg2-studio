@@ -46,23 +46,23 @@ seo:
       value: website
       keyName: property
     - name: 'og:title'
-      value: Stackbit Exto Theme
+      value: mg2
       keyName: property
     - name: 'og:description'
-      value: The preview of the Exto theme
+      value: Studio di Architettura
       keyName: property
     - name: 'og:image'
-      value: images/exto_preview.png
+      value: images/logo.png
       keyName: property
       relativeUrl: true
     - name: 'twitter:card'
       value: summary_large_image
     - name: 'twitter:title'
-      value: Stackbit Exto Theme
+      value: mg2Studio
     - name: 'twitter:description'
-      value: The preview of the Exto theme
+      value: Studio di Architettura
     - name: 'twitter:image'
-      value: images/exto_preview.png
+      value: images/logo.png
       relativeUrl: true
 template: advanced
 ---
